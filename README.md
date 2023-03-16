@@ -3,13 +3,13 @@ Linux application to share clipboard text to mobile phone using qrcode
 
 ## Installation
 
-* Clone this repo, create separate python environment and install requirements
+* Clone this repo, create separate python environment ```qrcopy```
 ```bash
 cd ~/.local && git clone https://github.com/Anant-mishra1729/qrcopy.git && cd qrcopy && chmod +x qrcopy.py
 python3 -m venv qrcopy && source qrcopy/bin/activate 
 ```
 
-* Install requirements
+* Install required packages
 ```sh
 pip install qrcode Pillow
 ```
