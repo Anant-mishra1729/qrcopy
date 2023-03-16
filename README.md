@@ -29,6 +29,6 @@ alias qrcopy='.local/share/qrcopy.py'
 Replace ```.local/share/qrcopy.py``` with path of qrcopy.py
 
 ## Test
-* Restart terminal and copy some text
+* Copy some text
 * Run ```qrcopy``` in terminal 
 * QR code will be generated, scan it and copy it in your mobile phone.
