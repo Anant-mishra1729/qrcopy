@@ -11,6 +11,8 @@ fi
 # download the qrcopy.py file from GitHub using curl
 echo -e "\e[1m\e[32mDownloading qrcopy.py...\e[0m"
 curl -o "$QR_COPY_DIR/qrcopy.py" https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/qrcopy.py
+echo -e "\e[1m\e[32mSetting permissions for qrcopy.py...\e[0m"
+chmod +x qrcopy.py
 
 # create the qrcopy.sh file
 touch "$QR_COPY_DIR/qrcopy.sh"
