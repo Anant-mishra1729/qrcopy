@@ -27,7 +27,7 @@ source qrcopy/bin/activate
 pip install qrcode Pillow
 
 # set an alias for qrcopy in the .bashrc file
-echo "alias qrcopy='~/.local/qrcopy/qrcopy.py'" >> ~/.bashrc
+echo "alias qrcopy='~/.local/qrcopy/qrcopy.sh'" >> ~/.bashrc
 
 # create a script file to activate the virtual environment and run qrcopy.py
 echo "#!/bin/bash" > qrcopy.sh
