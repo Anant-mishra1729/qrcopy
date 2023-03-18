@@ -12,12 +12,18 @@ fi
 echo -e "\e[1m\e[32mDownloading qrcopy.py...\e[0m"
 curl -o "$QR_COPY_DIR/qrcopy.py" https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/qrcopy.py
 
+# create the qrcopy.sh file
+touch "$QR_COPY_DIR/qrcopy.sh"
+
+# write the activation and execution commands to the qrcopy.sh file
+echo -e "#!/bin/bash\n\nsource $QR_COPY_DIR/qrcopy/bin/activate\npython3 $QR_COPY_DIR/qrcopy.py \"\$@\"" >> "$QR_COPY_DIR/qrcopy.sh"
+
+# change the permissions of the qrcopy.sh file to make it executable
+echo -e "\e[1m\e[32mSetting permissions for qrcopy.sh...\e[0m"
+chmod +x "$QR_COPY_DIR/qrcopy.sh"
+
 # change directory to the qrcopy directory
 cd "$QR_COPY_DIR"
-
-# set the permission for the qrcopy.py script
-echo -e "\e[1m\e[32mSetting permissions for qrcopy.py...\e[0m"
-chmod +x qrcopy.py
 
 # create a virtual environment named qrcopy using python3-venv
 echo -e "\e[1m\e[32mCreating virtual environment for qrcopy...\e[0m"
@@ -34,11 +40,11 @@ pip install qrcode Pillow
 # set an alias for qrcopy in the .bashrc or .bash_aliases file
 if [ -f ~/.bash_aliases ]; then
   echo -e "\e[1m\e[32mAdding alias to .bash_aliases...\e[0m"
-  echo "alias qrcopy='~/.local/qrcopy/qrcopy.py'" >> ~/.bash_aliases
+  echo "alias qrcopy='$QR_COPY_DIR/qrcopy.sh'" >> ~/.bash_aliases
   source ~/.bash_aliases
 else
   echo -e "\e[1m\e[32mAdding alias to .bashrc...\e[0m"
-  echo "alias qrcopy='~/.local/qrcopy/qrcopy.py'" >> ~/.bashrc
+  echo "alias qrcopy='$QR_COPY_DIR/qrcopy.sh'" >> ~/.bashrc
   source ~/.bashrc
 fi
 
