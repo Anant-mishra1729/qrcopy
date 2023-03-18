@@ -13,6 +13,7 @@ git clone https://github.com/Anant-mishra1729/qrcopy.git && cd qrcopy && chmod +
 * QR code will be generated, scan it and copy it in your mobile phone.
 
 ## Todo
-* Auto installation script
 * Handling large text
 * Platform independent software
+
+### Contributions are welcome :)
