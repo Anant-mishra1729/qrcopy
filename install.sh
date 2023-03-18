@@ -1,13 +1,18 @@
 #!/bin/bash
 
-# change directory to ~/.local
-cd ~/.local
+# set the qrcopy directory path
+QR_COPY_DIR=~/.local/qrcopy
 
-# clone the qrcopy repository from github
-git clone https://github.com/Anant-mishra1729/qrcopy.git
+# create the qrcopy directory if it does not exist
+if [ ! -d "$QR_COPY_DIR" ]; then
+  mkdir -p "$QR_COPY_DIR"
+fi
 
-# change directory to the cloned qrcopy directory
-cd qrcopy
+# download the qrcopy.py file from GitHub using curl
+curl -o "$QR_COPY_DIR/qrcopy.py" https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/qrcopy.py
+
+# change directory to the qrcopy directory
+cd "$QR_COPY_DIR"
 
 # set the permission for the qrcopy.py script
 chmod +x qrcopy.py
@@ -22,7 +27,7 @@ source qrcopy/bin/activate
 pip install qrcode Pillow
 
 # set an alias for qrcopy in the .bashrc file
-echo "alias qrcopy='.local/qrcopy/qrcopy.py'" >> ~/.bashrc
+echo "alias qrcopy='~/.local/qrcopy/qrcopy.py'" >> ~/.bashrc
 
 # source the .bashrc file to apply the changes
 source ~/.bashrc
