@@ -11,29 +11,28 @@ fi
 # download the qrcopy.py file from GitHub using curl
 echo -e "\e[1m\e[32mDownloading qrcopy.py...\e[0m"
 curl -o "$QR_COPY_DIR/qrcopy.py" https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/qrcopy.py
-echo -e "\e[1m\e[32mSetting permissions for qrcopy.py...\e[0m"
-chmod +x qrcopy.py
 
 # create the qrcopy.sh file
-touch "$QR_COPY_DIR/qrcopy.sh"
+echo -e "\e[1m\e[32mCreating qrcopy.sh file...\e[0m"
 
-# write the activation and execution commands to the qrcopy.sh file
-echo -e "#!/bin/bash\n\nsource $QR_COPY_DIR/qrcopy/bin/activate\npython3 $QR_COPY_DIR/qrcopy.py \"\$@\"" >> "$QR_COPY_DIR/qrcopy.sh"
+cat << EOF > "$QR_COPY_DIR/qrcopy.sh"
+#!/bin/bash
+source $QR_COPY_DIR/qrcopy/bin/activate
+python3 $QR_COPY_DIR/qrcopy/qrcopy.py \$@
+EOF
 
-# change the permissions of the qrcopy.sh file to make it executable
-echo -e "\e[1m\e[32mSetting permissions for qrcopy.sh...\e[0m"
+# set the permission for the qrcopy.py and qrcopy.sh script
+echo -e "\e[1m\e[32mSetting permissions for scripts...\e[0m"
+chmod +x "$QR_COPY_DIR/qrcopy.py"
 chmod +x "$QR_COPY_DIR/qrcopy.sh"
-
-# change directory to the qrcopy directory
-cd "$QR_COPY_DIR"
 
 # create a virtual environment named qrcopy using python3-venv
 echo -e "\e[1m\e[32mCreating virtual environment for qrcopy...\e[0m"
-python3 -m venv qrcopy
+python3 -m venv "$QR_COPY_DIR/qrcopy"
 
 # activate the qrcopy virtual environment
 echo -e "\e[1m\e[32mActivating virtual environment...\e[0m"
-source qrcopy/bin/activate
+source "$QR_COPY_DIR/qrcopy/bin/activate"
 
 # install the required packages using pip
 echo -e "\e[1m\e[32mInstalling required packages using pip...\e[0m"
