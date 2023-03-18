@@ -11,31 +11,31 @@ fi
 # download the qrcopy.py file from GitHub using curl
 curl -o "$QR_COPY_DIR/qrcopy.py" https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/qrcopy.py
 
-# change directory to the qrcopy directory
-cd "$QR_COPY_DIR"
+# create the qrcopy.sh script
+cat > "$QR_COPY_DIR/qrcopy.sh" <<EOF
+#!/bin/bash
+source $QR_COPY_DIR/bin/activate
+python3 $QR_COPY_DIR/qrcopy.py
+EOF
 
-# set the permission for the qrcopy.py script
-chmod +x qrcopy.py
+# set the permission for the qrcopy.sh script
+chmod +x "$QR_COPY_DIR/qrcopy.sh"
 
 # create a virtual environment named qrcopy using python3-venv
-python3 -m venv qrcopy
+python3 -m venv "$QR_COPY_DIR"
 
 # activate the qrcopy virtual environment
-source qrcopy/bin/activate
+source "$QR_COPY_DIR/bin/activate"
 
 # install the required packages using pip
 pip install qrcode Pillow
 
-# set an alias for qrcopy in the .bashrc file
-echo "alias qrcopy='~/.local/qrcopy/qrcopy.sh'" >> ~/.bashrc
-
-# create a script file to activate the virtual environment and run qrcopy.py
-echo "#!/bin/bash" > qrcopy.sh
-echo "source $QR_COPY_DIR/qrcopy/bin/activate" >> qrcopy.sh
-echo "python $QR_COPY_DIR/qrcopy.py" >> qrcopy.sh
-
-# make the script file executable
-chmod +x qrcopy.sh
+# check if ~/.bash_aliases exists, if it does, add the alias to it, else add it to ~/.bashrc
+if [ -f ~/.bash_aliases ]; then
+  echo "alias qrcopy='~/.local/qrcopy/qrcopy.sh'" >> ~/.bash_aliases
+else
+  echo "alias qrcopy='~/.local/qrcopy/qrcopy.sh'" >> ~/.bashrc
+fi
 
 # source the .bashrc file to apply the changes
 source ~/.bashrc
