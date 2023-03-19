@@ -3,8 +3,8 @@ Linux application to share clipboard text to mobile phone using qrcode
 
 ## Installation
 
-```sh
-git clone https://github.com/Anant-mishra1729/qrcopy.git && cd qrcopy && chmod +x install.sh && ./install.sh
+```bash
+curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/install.sh
 ```
 
 ## Test
