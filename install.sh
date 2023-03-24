@@ -36,7 +36,7 @@ source "$QR_COPY_DIR/qrcopy/bin/activate"
 
 # install the required packages using pip
 echo -e "\e[1m\e[32mInstalling required packages using pip...\e[0m"
-pip install qrcode Pillow
+pip install qrcode Pillow tkinter
 
 # set an alias for qrcopy in the .bashrc or .bash_aliases file
 if [ -f ~/.bash_aliases ]; then
