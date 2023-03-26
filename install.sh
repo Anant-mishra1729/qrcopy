@@ -10,13 +10,14 @@ fi
 
 # Config file to store installation details
 echo -e "\e[1m\e[32mCreating config file...\n\e[0m"
-cat << EOF > "$CONFIG_DIR/qrcopy.json"
+cat > "$CONFIG_DIR/qrcopy.json" << EOF
 {
   "QRCOPY_DIR": "$QR_COPY_DIR",
   "VENV_DIR": "$QR_COPY_DIR/qrcopy",
   "PASTEBIN_API_KEY": ""
 }
 EOF
+
 
 # create the qrcopy directory if it does not exist
 if [ ! -d "$QR_COPY_DIR" ]; then
