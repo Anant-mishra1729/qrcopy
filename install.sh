@@ -4,10 +4,12 @@
 QR_COPY_DIR=~/.local/qrcopy
 
 # Config file to store installation details
-cat << EOF > "$QR_COPY_DIR/qrcopy.conf"
-QR_COPY_DIR=$QR_COPY_DIR
-VENV_DIR=$QR_COPY_DIR/qrcopy
-PASTEBIN_API_KEY=""
+cat << EOF > "~/.config/qrcopy/qrcopy.json"
+{
+  "QRCOPY_DIR": "$QR_COPY_DIR",
+  "VENV_DIR": "$QR_COPY_DIR/qrcopy",
+  "PASTEBIN_API_KEY": ""
+}
 EOF
 
 # create the qrcopy directory if it does not exist
@@ -44,6 +46,12 @@ source "$QR_COPY_DIR/qrcopy/bin/activate"
 # install the required packages using pip
 echo -e "\e[1m\e[32mInstalling required packages using pip...\e[0m"
 pip install qrcode Pillow tkinter
+
+# prompt the user to enter their Pastebin API key
+read -p "Enter your Pastebin API key (leave blank if you don't have one): " PASTEBIN_API_KEY
+
+# update the config file with the Pastebin API key
+sed -i "s/^PASTEBIN_API_KEY=.*/PASTEBIN_API_KEY=\"$PASTEBIN_API_KEY\"/" "$QR_COPY_DIR/qrcopy.conf"
 
 # set an alias for qrcopy in the .bashrc or .bash_aliases file
 if [ -f ~/.bash_aliases ]; then

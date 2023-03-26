@@ -8,21 +8,23 @@ curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/install.sh |
 ```
 
 ## Usage
-#### Only clipboard text
-
 ```bash
-qrcopy
-```
+$ qrcopy -h
+QR Code Generator
 
-#### For some input text
-```bash
-qrcopy -i "Hello World"
-```
+optional arguments:
+  -h, --help            show this help message and exit
+  -i DATA, --data DATA  Input text to generate QR code
+  -o OUTPUT, --output OUTPUT
+                        Output file name
+  -f FILE, --file FILE  Input file name
+  -p, --pastebin        Upload to pastebin
+  -v, --version         Show version
+  -t FORMAT, --format FORMAT
+                        Paste format
+  -e EXPIRY, --expiry EXPIRY
+                        Paste expiry date
 
-#### Save qrcode to file
-```shell
-qrcopy -o qrcode.png # Save qrcode of clipboard text to qrcode.png
-qrcopy -i "Hello World" -o qrcode.png # Save qrcode of "Hello World" to qrcode.png
 ```
 
 ## Update
