@@ -43,7 +43,7 @@ qrcopy -i "Hello World" -f hello.txt
 > **Note**
 To use Pastebin insert you **Pastebin API Key** in ```~/.config/qrcopy/qrcopy.json``` -> ```PASTEBIN_API_KEY```
 
-### Share to pastebin
+### Upload to pastebin
 ```bash
 # Default format : text; Expiry : 1D
 qrcopy -p <FORMAT> <EXPIRY DATE>
