@@ -2,10 +2,15 @@
 
 # set the qrcopy directory path
 QR_COPY_DIR=~/.local/qrcopy
+CONFIG_DIR=~/.config/qrcopy
+
+if [ -d "$CONFIG_DIR" ]; then
+  mkdir -p "$CONFIG_DIR"
+fi
 
 # Config file to store installation details
 echo -e "\e[1m\e[32mCreating config file...\n\e[0m"
-cat << EOF > "$HOME/.config/qrcopy/qrcopy.json"
+cat << EOF > "$CONFIG_DIR/qrcopy.conf"
 {
   "QRCOPY_DIR": "$QR_COPY_DIR",
   "VENV_DIR": "$QR_COPY_DIR/qrcopy",
