@@ -4,7 +4,7 @@
 QR_COPY_DIR=~/.local/qrcopy
 
 # Config file to store installation details
-cat << EOF > "~/.config/qrcopy/qrcopy.json"
+cat << EOF > "$HOME/.config/qrcopy/qrcopy.json"
 {
   "QRCOPY_DIR": "$QR_COPY_DIR",
   "VENV_DIR": "$QR_COPY_DIR/qrcopy",
