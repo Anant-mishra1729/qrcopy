@@ -3,6 +3,13 @@
 # set the qrcopy directory path
 QR_COPY_DIR=~/.local/qrcopy
 
+# Config file to store installation details
+cat << EOF > "$QR_COPY_DIR/qrcopy.conf"
+QR_COPY_DIR=$QR_COPY_DIR
+VENV_DIR=$QR_COPY_DIR/qrcopy
+PASTEBIN_API_KEY=""
+EOF
+
 # create the qrcopy directory if it does not exist
 if [ ! -d "$QR_COPY_DIR" ]; then
   mkdir -p "$QR_COPY_DIR"
