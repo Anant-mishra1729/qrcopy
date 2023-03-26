@@ -1,5 +1,11 @@
 # qrcopy
-Linux application to share clipboard text to mobile phone using qrcode
+Linux application to generate QR code for
+* Clipboard text
+* Any input text
+* Input file
+
+and **Directly share any text to Pastebin with a single command**
+
 
 ## Install
 
