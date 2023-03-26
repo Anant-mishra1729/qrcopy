@@ -13,18 +13,18 @@ Run the above command again
 
 
 ## Usage
+#### Only clipboard
 
 ```bash
-# Only clipboard text
 qrcopy
 ```
 
-### Input text
+#### For some text
 ```bash
 qrcopy -i "Hello World"
 ```
 
-### Save qrcode to file
+#### Save qrcode to file
 ```shell
 qrcopy -o qrcode.png # Save qrcode of clipboard text to qrcode.png
 qrcopy -i "Hello World" -o qrcode.png # Save qrcode of "Hello World" to qrcode.png
