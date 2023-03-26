@@ -10,13 +10,13 @@ and **Directly share any text to Pastebin with a single command**
 ## Install
 
 ```bash
-curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/install.sh | bash
+curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/install.sh | bash
 ```
 > Restart terminal incase ```qrcopy``` command is not working after installation
 
 ## Update
 ```bash
-curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/update.sh | bash
+curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/update.sh | bash
 ```
 
 ## Usage
