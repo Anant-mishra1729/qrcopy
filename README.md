@@ -6,8 +6,11 @@ Linux application to share clipboard text to mobile phone using qrcode
 ```bash
 curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/install.sh | bash
 ```
+> Restart terminal incase command is not working
 
 ## Usage
+
+#### Help
 ```bash
 $ qrcopy -h
 QR Code Generator
@@ -19,13 +22,14 @@ optional arguments:
                         Output file name
   -f FILE, --file FILE  Input file name
   -p, --pastebin        Upload to pastebin
-  -v, --version         Show version
+  -v, --version         Show qrcode version
   -t FORMAT, --format FORMAT
                         Paste format
   -e EXPIRY, --expiry EXPIRY
                         Paste expiry date
 
 ```
+
 
 ## Update
 ```bash
