@@ -10,7 +10,7 @@ fi
 
 # Config file to store installation details
 echo -e "\e[1m\e[32mCreating config file...\n\e[0m"
-cat << EOF > "$CONFIG_DIR/qrcopy.conf"
+cat << EOF > "$CONFIG_DIR/qrcopy.json"
 {
   "QRCOPY_DIR": "$QR_COPY_DIR",
   "VENV_DIR": "$QR_COPY_DIR/qrcopy",
@@ -57,7 +57,7 @@ pip install qrcode Pillow pyperclip requests
 read -p "Enter your Pastebin API key (leave blank if you don't have one): " PASTEBIN_API_KEY
 
 # update the config file with the Pastebin API key
-sed -i "s/^PASTEBIN_API_KEY=.*/PASTEBIN_API_KEY=\"$PASTEBIN_API_KEY\"/" "$QR_COPY_DIR/qrcopy.conf"
+sed -i "s/^\"PASTEBIN_API_KEY\":.*/\"PASTEBIN_API_KEY\":\"$PASTEBIN_API_KEY\"/" "$CONFIG_DIR/qrcopy.json"
 
 # set an alias for qrcopy in the .bashrc or .bash_aliases file
 if [ -f ~/.bash_aliases ]; then
