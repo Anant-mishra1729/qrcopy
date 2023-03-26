@@ -1,5 +1,5 @@
 import qrcode
-import tkinter as tk
+import pyperclip
 import argparse
 import os
 import json
@@ -37,7 +37,7 @@ def get_data(args):
             print('File not found')
             exit()
     else:
-        data = tk.Tk().clipboard_get()
+        data = pyperclip.paste()
         if not data:
             print('No data found in clipboard')
             exit()
@@ -63,7 +63,6 @@ def generate_qr(data):
     # Save the image to a file
     if args.output:
         img.save(args.output)
-        root.withdraw()
         print('QR code saved to ' + args.output)
 
     img.show()
@@ -79,9 +78,6 @@ parser.add_argument('-v', '--version', help='Show version', action='store_true')
 parser.add_argument('-t', '--format', help='Paste format', type= str, default= 'text')
 parser.add_argument('-e', '--expiry', help='Paste expiry date', type= str, default= '1D')
 args = parser.parse_args()
-
-root = tk.Tk()
-root.withdraw()
 
 data = get_data(args)
 
