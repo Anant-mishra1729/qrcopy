@@ -10,25 +10,34 @@ curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/install.sh |
 
 ## Usage
 
-#### Help
+### Clipboard text (Default)
 ```bash
-$ qrcopy -h
-QR Code Generator
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -i DATA, --data DATA  Input text to generate QR code
-  -o OUTPUT, --output OUTPUT
-                        Output file name
-  -f FILE, --file FILE  Input file name
-  -p, --pastebin        Upload to pastebin
-  -v, --version         Show qrcode version
-  -t FORMAT, --format FORMAT
-                        Paste format
-  -e EXPIRY, --expiry EXPIRY
-                        Paste expiry date
-
+qrcopy
 ```
+### Input text
+```bash 
+qrcopy -i "Hello World"
+```
+### Input file
+```bash
+qrcopy -f <FILE NAME>
+```
+> **Note**
+```bash
+# When both file and input text are used .i.e
+qrcopy -i "Hello World" -f hello.txt
+# Input text will be shared with QR-Code
+```
+### Share to pastebin
+```bash
+# Default format : text; Expiry : 1D
+qrcopy -p <FORMAT> <EXPIRY DATE>
+
+qrcopy -p # Clipboard text
+qrcopy -i "Hello World" -p # Input text
+qrcopy -f <FILE NAME> -p # Input file
+```
+
 
 
 ## Update
