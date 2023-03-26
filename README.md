@@ -8,13 +8,13 @@ curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/install.sh |
 ```
 
 ## Usage
-#### Only clipboard
+#### Only clipboard text
 
 ```bash
 qrcopy
 ```
 
-#### For some text
+#### For some input text
 ```bash
 qrcopy -i "Hello World"
 ```
@@ -23,6 +23,12 @@ qrcopy -i "Hello World"
 ```shell
 qrcopy -o qrcode.png # Save qrcode of clipboard text to qrcode.png
 qrcopy -i "Hello World" -o qrcode.png # Save qrcode of "Hello World" to qrcode.png
+```
+
+## Update
+```bash
+curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/update.sh | bash
+
 ```
 
 ## Todo
