@@ -4,6 +4,7 @@
 QR_COPY_DIR=~/.local/qrcopy
 CONFIG_DIR=~/.config/qrcopy
 
+# create the CONFIG_DIR directory if it does not exist
 if [ ! -d "$CONFIG_DIR" ]; then
   mkdir -p "$CONFIG_DIR"
 fi
