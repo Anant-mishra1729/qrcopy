@@ -7,13 +7,30 @@ Linux application to share clipboard text to mobile phone using qrcode
 curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/install.sh | bash
 ```
 
-## Test
-* Copy some text
-* Run ```qrcopy``` in terminal 
-* QR code will be generated, scan it and copy it in your mobile phone.
+## Update
+
+Run the above command again
+
+
+## Usage
+
+```bash
+# Only clipboard text
+qrcopy
+```
+
+### Input text
+```bash
+qrcopy -i "Hello World"
+```
+
+### Save qrcode to file
+```shell
+qrcopy -o qrcode.png # Save qrcode of clipboard text to qrcode.png
+qrcopy -i "Hello World" -o qrcode.png # Save qrcode of "Hello World" to qrcode.png
+```
 
 ## Todo
 * Handling large text
-* Platform independent software
-
+* Platform independent (Windows, Mac) (Currently only Linux)
 ### Contributions are welcome :)
