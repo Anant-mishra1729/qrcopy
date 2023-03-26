@@ -28,7 +28,6 @@ class Pastebin:
 
 def upload_to_pastebin(text):
     # Read config file for pastebin api key
-    print("Uploading to pastebin...")
     config_file = os.path.expanduser('~/.config/qrcopy/qrcopy.json')
     with open(config_file, 'r') as f:
         config = json.load(f)
