@@ -45,7 +45,7 @@ source "$QR_COPY_DIR/qrcopy/bin/activate"
 
 # install the required packages using pip
 echo -e "\e[1m\e[32mInstalling required packages using pip...\e[0m"
-pip install qrcode Pillow tkinter
+pip install qrcode Pillow
 
 # prompt the user to enter their Pastebin API key
 read -p "Enter your Pastebin API key (leave blank if you don't have one): " PASTEBIN_API_KEY
