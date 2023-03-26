@@ -1,6 +1,5 @@
 import qrcode
 import tkinter as tk
-from tkinter import messagebox
 import argparse
 import os
 import json
@@ -65,7 +64,7 @@ def generate_qr(data):
     if args.output:
         img.save(args.output)
         root.withdraw()
-        messagebox.showinfo('Success', 'QR code saved to ' + args.output)
+        print('QR code saved to ' + args.output)
 
     img.show()
 
