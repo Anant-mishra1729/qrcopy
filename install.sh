@@ -4,7 +4,7 @@
 QR_COPY_DIR=~/.local/qrcopy
 CONFIG_DIR="$HOME/.config/qrcopy"
 
-if [ -d "$CONFIG_DIR" ]; then
+if [ ! -d "$CONFIG_DIR" ]; then
   mkdir -p "$CONFIG_DIR"
 fi
 
