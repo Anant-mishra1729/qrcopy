@@ -33,6 +33,11 @@ qrcopy -i "Hello World"
 ```bash
 qrcopy -f <FILE NAME>
 ```
+
+### Output QR-Code image
+```bash
+qrcopy -o "qrcode.png"
+```
 > **Warning**
 ```bash
 # When both file and input text are used .i.e
