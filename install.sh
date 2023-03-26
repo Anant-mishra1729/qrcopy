@@ -34,8 +34,8 @@ echo -e "\e[1m\e[32mCreating qrcopy.sh file...\n\e[0m"
 
 cat << EOF > "$QR_COPY_DIR/qrcopy.sh"
 #!/bin/bash
-source ~/.local/qrcopy/qrcopy/bin/activate
-python qrcopy.py "$@"
+source $QR_COPY_DIR/qrcopy/bin/activate
+python $QR_COPY_DIR/qrcopy.py "\$@"
 EOF
 
 # set the permission for the qrcopy.py and qrcopy.sh script
