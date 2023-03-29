@@ -62,6 +62,17 @@ qrcopy -i "Hello World" -f hello.txt
 To use Pastebin insert you **Pastebin API Key** in ```~/.config/qrcopy/qrcopy.json``` -> ```PASTEBIN_API_KEY```
 
 ### Upload to pastebin
+#### For EXPIRY DATE vaild values are
+* N = Never
+* 10M = 10 Minutes
+* 1H = 1 Hour
+* 1D = 1 Day
+* 1W = 1 Week
+* 2W = 2 Weeks
+* 1M = 1 Month
+* 6M = 6 Months
+* 1Y = 1 Year
+#### For FORMAT visit [here](https://pastebin.com/doc_api#:~:text=down%20the%20page.-,Creating%20A%20New%20Paste%2C%20The%20%27api_paste_format%27%20Parameter%20In%20Detail,-We%20have%20over)
 ```bash
 # Default format : text; Expiry : 1D
 qrcopy -p <FORMAT> <EXPIRY DATE>
@@ -70,6 +81,8 @@ qrcopy -p # Clipboard text
 qrcopy -i "Hello World" -p # Input text
 qrcopy -f <FILE NAME> -p # Input file
 ```
+
+
 ### With other commands
 #### Format : ```command | qrcopy -s```
 ```bash
