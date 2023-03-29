@@ -58,12 +58,19 @@ qrcopy -p # Clipboard text
 qrcopy -i "Hello World" -p # Input text
 qrcopy -f <FILE NAME> -p # Input file
 ```
-### Using stdin (piping commands) '-s'
+### Using standard input (piping commands) -> ```command | qrcode -s```
 ```bash
-cat file | qrcopy -s # to copy content on smartphone
-command | curl -F 'file=@-' 0x0.st | qrcopy -s # send output first command to 0x0, and gen qrcode to link
-strace command | curl -F 'file=@-' 0x0.st | qrcopy -s # send log to 0x0, and gen qrcode to link
-curl -F'file=@yourfile.png' 0x0.st | qrcopy -s # upload file to 0x0 and gen qrcode to link
+# Generating qrcode for output of cat command
+cat file | qrcopy -s 
+
+# Generating qrcode for url of file uploaded at 0x0.st file sharing service
+command | curl -F 'file=@-' 0x0.st | qrcopy -s 
+
+# Upload log of strace command to 0x0.st and generate qrcode for the url
+strace command | curl -F 'file=@-' 0x0.st | qrcopy -s 
+
+# Upload image to 0x0.st and generate qrcode of the url
+curl -F'file=@yourfile.png' 0x0.st | qrcopy -s
 ```
 
 
