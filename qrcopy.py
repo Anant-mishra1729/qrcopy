@@ -48,8 +48,10 @@ def upload_to_pastebin(text):
 
 def get_data(args):
     data = ''
-    if args.data:
-        data = args.data
+    if args.stdin:
+        data = sys.stdin.read()
+    elif args.input_data:
+        data = args.input_data
     elif args.file:
         if os.path.exists(args.file):
             with open(args.file, 'r') as f:
@@ -91,38 +93,35 @@ def generate_qr(data):
 def main():
     data = get_data(args)
 
-    # If stdin is true, read from stdin
-    if args.stdin:
-        data = sys.stdin.read()
-
     if args.pastebin:
-        data = upload_to_pastebin(data)
-        print("URL: " + data)
-        generate_qr(data)
+        url_ = upload_to_pastebin(data)
+        print("URL: " + url_)
+        generate_qr(url_)
         exit()
 
     # Check if data is too long to be encoded in a QR code
     # If it is, upload to pastebin
     if len(data) > 2952:
-        print('Data too long')
-        print("Do you want to upload to pastebin? (y/n)")
-        choice = input().lower()
-        if choice == 'y':
-            data = upload_to_pastebin(data)
-            # If data starts with http, it is a url
-            if data.startswith('http'):
-                print("URL: " + data)
-                generate_qr(data)
+        if not args.stdin:
+            print("Data is too long\nDo you want to upload to pastebin? (y/n)")
+            choice = input().lower()
+            if choice == 'y':
+                data = upload_to_pastebin(data)
+                # If data starts with http, it is a url
+                if data.startswith('http'):
+                    print("URL: " + data)
+                    generate_qr(data)
+            else:
+                exit()
         else:
-            exit()
-
+            print('Data is too long to be encoded in a QR code\n Use -p or --pastebin to upload to pastebin')
     else:
         generate_qr(data)
 
 if __name__ == '__main__':
     # Adding arguments to the script
     parser = argparse.ArgumentParser(description='QR Code Generator')
-    parser.add_argument('-i', '--data', help='Input text to generate QR code', type= str)
+    parser.add_argument('-i', '--input_data', help='Input text to generate QR code', type= str)
     parser.add_argument('-o', '--output', help='Output file name', type= str)
     parser.add_argument('-f', '--file', help='Input file name', type= str)
     parser.add_argument('-p', '--pastebin', help='Upload to pastebin', action='store_true')
