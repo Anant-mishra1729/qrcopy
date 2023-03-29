@@ -33,9 +33,6 @@ class Pastebin:
         r = requests.post(self.url, headers=self.headers, data=self.data)
         return r.text
 
-    def get_url(self, text, title):
-        return self.upload(text, title)
-
 
 def upload_to_pastebin(text):
     # Read config file for pastebin api key
@@ -48,14 +45,17 @@ def upload_to_pastebin(text):
             "Pastebin API key not found\nPlease add it to the ~/.config/qrcopy/qrcopy.json file"
         )
         exit()
+
     pastebin = Pastebin(
         api_key,
         api_paste_private="0",
         api_paste_expire_date=args.expiry,
         api_paste_format=args.format,
     )
-    print("Uploading to pastebin, the url will expire in 1 day")
-    url = pastebin.get_url(text, "QR Code")
+
+    print("Uploading to pastebin, the url will expire in " + args.expiry + "...")
+    url = pastebin.upload(text, "QR Code")
+
     if url.startswith("http"):
         return url
     else:
@@ -64,12 +64,15 @@ def upload_to_pastebin(text):
         exit()
 
 
+# Get data from clipboard, file or stdin
 def get_data(args):
     data = ""
     if args.stdin:
         data = sys.stdin.read()
+
     elif args.input_data:
         data = args.input_data
+    
     elif args.file:
         if os.path.exists(args.file):
             with open(args.file, "r") as f:
@@ -85,6 +88,7 @@ def get_data(args):
     return data
 
 
+# Generate QR code
 def generate_qr(data):
     print("Generating QR code...")
     try:
@@ -108,6 +112,7 @@ def generate_qr(data):
     img.show()
 
 
+# Main function
 def main():
     data = get_data(args)
 
@@ -117,18 +122,14 @@ def main():
         generate_qr(url_)
         exit()
 
-    # Check if data is too long to be encoded in a QR code
-    # If it is, upload to pastebin
+    # Check if data is too long to be encoded in a QR code (2953 characters) and ask user to upload to pastebin
     if len(data) > 2952:
         if not args.stdin:
             print("Data is too long\nDo you want to upload to pastebin? (y/n)")
             choice = input().lower()
             if choice == "y":
-                data = upload_to_pastebin(data)
-                # If data starts with http, it is a url
-                if data.startswith("http"):
-                    print("URL: " + data)
-                    generate_qr(data)
+                url = upload_to_pastebin(data)
+                generate_qr(url)
             else:
                 exit()
         else:
@@ -140,16 +141,16 @@ def main():
 
 
 if __name__ == "__main__":
-    # Adding arguments to the script
     parser = argparse.ArgumentParser(description="QR Code Generator")
     parser.add_argument("-i", "--input_data", help="Input text to generate QR code", type=str)
-    parser.add_argument("-o", "--output", help="Output file name", type=str)
-    parser.add_argument("-f", "--file", help="Input file name", type=str)
-    parser.add_argument("-p", "--pastebin", help="Upload to pastebin", action="store_true")
-    parser.add_argument("-v", "--version", help="Show version", action="store_true")
-    parser.add_argument("-t", "--format", help="Paste format", type=str, default="text")
+    parser.add_argument("-o", "--output", help="Output file name", type=str, default="output.png")
+    parser.add_argument("-f", "--file", help="Input file path", type=str)
+    parser.add_argument("-p", "--pastebin", help="Upload to pastebin (API key required in ~/.config/qrcopy/qrcopy.json)", action="store_true")
+    parser.add_argument("-v", "--version", help="Show generated QR code version", action="store_true")
+    parser.add_argument("-t", "--format", help="Paste format (text, c, cpp etc.)", type=str, default="text")
     parser.add_argument("-e", "--expiry", help="Paste expiry date", type=str, default="1D")
-    # Adding argument for stdin
+
+    # Get data from stdin, thanks to @vmath3us for the suggestion
     parser.add_argument("-s", "--stdin", help="Read from stdin", action="store_true")
     args = parser.parse_args()
     main()
