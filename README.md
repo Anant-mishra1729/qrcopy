@@ -105,6 +105,5 @@ curl -F'file=@yourfile.png' 0x0.st | qrcopy -s
 
 
 ## Todo
-* Pastebin api_user_key .i.e Pastebin private upload support
 * Platform independent (Windows, Mac) (Currently only Linux)
 ### Contributions are welcome :)
