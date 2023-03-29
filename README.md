@@ -17,8 +17,6 @@ It also supports standard input or piping of commands, allowing you to generate 
 </ol>
 
 
-
-
 ## Install
 
 ```bash
@@ -72,14 +70,20 @@ To use Pastebin insert you **Pastebin API Key** in ```~/.config/qrcopy/qrcopy.js
 * 1M = 1 Month
 * 6M = 6 Months
 * 1Y = 1 Year
+
 #### Visit [here](https://pastebin.com/doc_api#:~:text=down%20the%20page.-,Creating%20A%20New%20Paste%2C%20The%20%27api_paste_format%27%20Parameter%20In%20Detail,-We%20have%20over) for the available 200 formats
+
 ```bash
 # Default format : text; Expiry : 1D
 qrcopy -p <FORMAT> <EXPIRY DATE>
 
 qrcopy -p # Clipboard text
 qrcopy -i "Hello World" -p # Input text
-qrcopy -f <FILE NAME> -p # Input file
+qrcopy -f hello.txt -p # Input text file
+qrcopy -f hello.html -p # Input HTML file
+
+qrcopy -f hello.html -t html5 # Upload hello.html with HTML5 syntax highlighting
+qrcopy -f hello.html -t html5 -e 1W # Upload hello.html with HTML5 syntax highlighting, expired in 1 week
 ```
 
 
