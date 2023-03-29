@@ -82,8 +82,8 @@ qrcopy -i "Hello World" -p # Input text
 qrcopy -f hello.txt -p # Input text file
 qrcopy -f hello.html -p # Input HTML file
 
-qrcopy -f hello.html -t html5 -p # Upload hello.html with HTML5 syntax highlighting
-qrcopy -f hello.html -t html5 -e 1W -p # Upload hello.html with HTML5 syntax highlighting, expired in 1 week
+qrcopy -f hello.html -pf html5 -p # Upload hello.html with HTML5 syntax highlighting
+qrcopy -f hello.html -pf html5 -pe 1W -p # Upload hello.html with HTML5 syntax highlighting, expired in 1 week
 ```
 
 
