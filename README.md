@@ -34,7 +34,7 @@ qrcopy -i "Hello World"
 qrcopy -f <FILE NAME>
 ```
 
-### Output QR-Code image
+### Save QR-code as image
 ```bash
 qrcopy -o "qrcode.png"
 ```
@@ -58,8 +58,15 @@ qrcopy -p # Clipboard text
 qrcopy -i "Hello World" -p # Input text
 qrcopy -f <FILE NAME> -p # Input file
 ```
+### Using stdin (piping commands) '-s'
+```bash
+cat file | qrcopy -s # to copy content on smartphone
+command | curl -F 'file=@-' 0x0.st | qrcopy -s # send output first command to 0x0, and gen qrcode to link
+strace command | curl -F 'file=@-' 0x0.st | qrcopy -s # send log to 0x0, and gen qrcode to link
+curl -F'file=@yourfile.png' 0x0.st | qrcopy -s # upload file to 0x0 and gen qrcode to link
+```
+
 
 ## Todo
-* Handling large text
 * Platform independent (Windows, Mac) (Currently only Linux)
 ### Contributions are welcome :)
