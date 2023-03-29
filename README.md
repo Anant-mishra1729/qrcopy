@@ -71,7 +71,7 @@ qrcopy -i "Hello World" -p # Input text
 qrcopy -f <FILE NAME> -p # Input file
 ```
 ### With other commands
-#### Format : ```command | qrcode -s```
+#### Format : ```command | qrcopy -s```
 ```bash
 # Generating qrcode for output of cat command
 cat file | qrcopy -s 
