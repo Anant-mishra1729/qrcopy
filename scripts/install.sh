@@ -15,7 +15,8 @@ cat > "$CONFIG_DIR/qrcopy.json" << EOF
 {
   "QRCOPY_DIR": "$QR_COPY_DIR",
   "VENV_DIR": "$QR_COPY_DIR/qrcopy",
-  "PASTEBIN_API_KEY": ""
+  "PASTEBIN_API_KEY": "",
+  "PASTEBIN_USER_API_KEY": ""
 }
 EOF
 
