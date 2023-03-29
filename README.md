@@ -1,10 +1,22 @@
 # qrcopy
-Linux application to generate QR code for
-* Clipboard text
-* Any input text
-* Input file
+Qrcopy is a Linux application that generates QR codes for clipboard text, any input text, and input files and share text on pastebin.com.
+It also supports standard input or piping of commands, allowing you to generate QR codes for the output of any command that can be piped to it.
 
-and **Directly share any text to Pastebin with a single command**
+<ol>
+  <li><a href="#install">Install</a></li>
+  <li><a href="#updating">Updating</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <ul>
+    <li><a href="#clipboard-text">Clipboard (Default) 📋</a></li>
+    <li><a href="#input-text">Input text</a></li>
+    <li><a href="#save-qr-as-image">Save QR code as image</a></li>
+    <li><a href="#upload-to-pastebin">Upload to pastebin</a></li>
+    <li><a href="#with-other-commands">With other commands</a></li>
+  </ul>
+  <li><a href="#todo">Todo</a></li>
+</ol>
+
+
 
 
 ## Install
@@ -14,14 +26,14 @@ curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/inst
 ```
 > Restart terminal incase ```qrcopy``` command is not working after installation
 
-## Update
+## Updating
 ```bash
 curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/update.sh | bash
 ```
 
 ## Usage
 
-### Clipboard text (Default)
+### Clipboard text
 ```bash
 qrcopy
 ```
@@ -34,7 +46,7 @@ qrcopy -i "Hello World"
 qrcopy -f <FILE NAME>
 ```
 
-### Save QR-code as image
+### Save QR as image
 ```bash
 qrcopy -o "qrcode.png"
 ```
@@ -58,7 +70,8 @@ qrcopy -p # Clipboard text
 qrcopy -i "Hello World" -p # Input text
 qrcopy -f <FILE NAME> -p # Input file
 ```
-### Using standard input (piping commands) -> ```command | qrcode -s```
+### With other commands
+#### Format : ```command | qrcode -s```
 ```bash
 # Generating qrcode for output of cat command
 cat file | qrcopy -s 
