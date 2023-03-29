@@ -72,7 +72,7 @@ To use Pastebin insert you **Pastebin API Key** in ```~/.config/qrcopy/qrcopy.js
 * 1M = 1 Month
 * 6M = 6 Months
 * 1Y = 1 Year
-#### For FORMAT visit [here](https://pastebin.com/doc_api#:~:text=down%20the%20page.-,Creating%20A%20New%20Paste%2C%20The%20%27api_paste_format%27%20Parameter%20In%20Detail,-We%20have%20over)
+#### Visit [here](https://pastebin.com/doc_api#:~:text=down%20the%20page.-,Creating%20A%20New%20Paste%2C%20The%20%27api_paste_format%27%20Parameter%20In%20Detail,-We%20have%20over) for the available 200 formats
 ```bash
 # Default format : text; Expiry : 1D
 qrcopy -p <FORMAT> <EXPIRY DATE>
