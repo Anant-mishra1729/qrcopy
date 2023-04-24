@@ -34,20 +34,20 @@ curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/upda
 
 ## Usage
 
-### Clipboard text
+* ### Clipboard text
 ```bash
 qrcopy
 ```
-### Input text
+* ### Input text
 ```bash 
 qrcopy -i "Hello World"
 ```
-### Input file
+* ### Input file
 ```bash
 qrcopy -f <FILE NAME>
 ```
 
-### Save QR as image
+* ### Save QR as image
 ```bash
 qrcopy -o "qrcode.png"
 ```
@@ -62,7 +62,7 @@ qrcopy -i "Hello World" -f hello.txt
 
 To use Pastebin insert you **Pastebin API Key** in ```~/.config/qrcopy/qrcopy.json``` -> ```PASTEBIN_API_KEY```
 
-### Upload to pastebin
+* ### Upload to pastebin
 #### For EXPIRY DATE vaild values are
 * N = Never
 * 10M = 10 Minutes
@@ -90,7 +90,7 @@ qrcopy -f hello.html -pf html5 -pe 1W -p # Upload hello.html with HTML5 syntax h
 ```
 
 
-### With other commands
+* ### With other commands
 #### Format : ```command | qrcopy -s```
 ```bash
 # Generating qrcode for output of cat command
