@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# check if python3-venv is installed
+if ! command -v python3-venv &> /dev/null
+then
+    echo "python3-venv could not be found. Please install python3-venv before running this script."
+    exit 1
+fi
+
 # set the qrcopy directory path
 QR_COPY_DIR=~/.local/qrcopy
 CONFIG_DIR=~/.config/qrcopy
