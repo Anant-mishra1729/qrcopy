@@ -3,7 +3,7 @@
 # check if python3-venv is installed
 if ! command -v python3-venv &> /dev/null
 then
-    echo -e "\e[1mpython3-venv\e[0m could not be found. Please install python3-venv before running this script."
+    echo "python3-\e[31mvenv\e[0m could not be found. Please install python3-venv before running this script."
     exit 1
 fi
 
