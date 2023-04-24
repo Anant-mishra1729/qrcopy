@@ -56,7 +56,7 @@ source "$QR_COPY_DIR/qrcopy/bin/activate"
 echo -e "\e[1m\e[32mInstalling required packages using pip...\n\e[0m"
 pip install qrcode Pillow pyperclip requests
 
-echo -e "\e[1m\e[36mEnter your Pastebin API key in ~/.config/qrcopy/qrcopy.conf (leave blank if you don't have one): \e[0m"
+echo -e "\e[1m\e[36mEnter your Pastebin API key in ~/.config/qrcopy/qrcopy.conf (You can get it from pastebin.com) \e[0m"
 
 # set an alias for qrcopy in the .bashrc or .bash_aliases file
 if [ -f ~/.bash_aliases ]; then
