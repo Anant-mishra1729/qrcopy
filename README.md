@@ -3,7 +3,7 @@ Qrcopy is a Linux application that generates QR codes for clipboard text, any in
 It also supports standard input or piping of commands, allowing you to generate QR codes for the output of any command that can be piped to it.
 
 <ol>
-  <li><a href="#install">Install</a></li>
+  <li><a href="#installation">Installation</a></li>
   <li><a href="#updating">Updating</a></li>
   <li><a href="#usage">Usage</a></li>
   <ul>
@@ -16,8 +16,11 @@ It also supports standard input or piping of commands, allowing you to generate 
   <li><a href="#todo">Todo</a></li>
 </ol>
 
+## :warning: Prerequisites 
 
-## Install
+* Install **python3-venv** package for your Linux distribution before running the installation script. 
+
+## Installation
 
 ```bash
 curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/install.sh | bash
