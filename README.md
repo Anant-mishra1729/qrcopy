@@ -18,7 +18,7 @@ It also supports standard input or piping of commands, allowing you to generate 
 
 ## :warning: Prerequisites 
 
-* Install **python3-venv** package for your Linux distribution before running the installation script. 
+* Install `python3-venv` and `xclip` package for your Linux distribution before running the installation script. 
 
 ## Installation
 
