@@ -18,7 +18,8 @@ It also supports standard input or piping of commands, allowing you to generate 
 
 ## 🛑 Prerequisites 🛑
 
-* Install `python3-venv` (`python3.10-venv` if python3-venv is not working) and `xclip` package for your Linux distribution before running the installation script. 
+* Install `python3-venv` (`python3.10-venv` if python3-venv is not working).
+* For clipboard functionality install anyone of these `xsel` or `xclip` (checkout [here](https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error:~:text=after%205%20seconds.-,Not%20Implemented%20Error,-You%20may%20get)), otherwise you may get this error *Pyperclip could not find a copy/paste mechanism for your system.*
 
 ## Installation
 
@@ -34,6 +35,9 @@ curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/upda
 
 ## Uninstall
 * Remove 
+
+
+
 
 ## Usage
 
