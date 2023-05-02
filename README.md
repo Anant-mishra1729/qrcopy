@@ -16,9 +16,9 @@ It also supports standard input or piping of commands, allowing you to generate 
   <li><a href="#todo">Todo</a></li>
 </ol>
 
-## :warning: Prerequisites 
+## 🛑 Prerequisites 🛑
 
-* Install `python3-venv` and `xclip` package for your Linux distribution before running the installation script. 
+* Install `python3-venv` (`python3.10-venv` if python3-venv is not working) and `xclip` package for your Linux distribution before running the installation script. 
 
 ## Installation
 
@@ -31,6 +31,9 @@ curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/inst
 ```bash
 curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/update.sh | bash
 ```
+
+## Uninstall
+* Remove 
 
 ## Usage
 
