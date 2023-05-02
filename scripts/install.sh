@@ -62,11 +62,9 @@ echo -e "\e[1m\e[36mEnter your Pastebin API key in ~/.config/qrcopy/qrcopy.conf 
 if [ -f ~/.bash_aliases ]; then
   echo -e "\e[1m\e[32mAdding alias to .bash_aliases...\n\e[0m"
   echo "alias qrcopy='$QR_COPY_DIR/qrcopy.sh'" >> ~/.bash_aliases
-  source ~/.bash_aliases
 else
   echo -e "\e[1m\e[32mAdding alias to .bashrc...\n\e[0m"
   echo "alias qrcopy='$QR_COPY_DIR/qrcopy.sh'" >> ~/.bashrc
-  source ~/.bashrc
 fi
 
 echo -e "\e[1m\e[32mDone!\e[0m"
