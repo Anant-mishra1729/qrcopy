@@ -13,7 +13,7 @@ It also supports standard input or piping of commands, allowing you to generate 
 ```bash
 curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/install.sh | bash
 ```
-Restart terminal incase ```qrcopy``` command is not working after installation
+Restart terminal after installation
 
 ## Update
 ```bash
