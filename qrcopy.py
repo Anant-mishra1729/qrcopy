@@ -180,7 +180,7 @@ def main():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="QR Code Generator", help="Checkout https://github.com/Anant-mishra1729/qrcopy/wiki for more details")
+    parser = argparse.ArgumentParser(description="QR Code Generator, Checkout https://github.com/Anant-mishra1729/qrcopy/wiki for more details")
     parser.add_argument(
         "-v", "--version", help="Show generated QR code version", action="store_true"
     )
