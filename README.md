@@ -15,12 +15,86 @@ curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/inst
 ```
 Restart terminal after installation
 
+
 ## Update
 ```bash
 curl https://raw.githubusercontent.com/Anant-mishra1729/qrcopy/main/scripts/update.sh | bash
 ```
 
-### Usage : Checkout [wiki](https://github.com/Anant-mishra1729/qrcopy/wiki)
+## How to use it?
+### Normal usage
+* **Clipboard (copied text)**
+```bash
+qrcopy
+```
+* **For any input text**
+```bash 
+qrcopy -i "Hello World"
+```
+* **For any input file**
+```bash
+qrcopy -f <FILE NAME>
+```
+
+* **Save generated QR as an image file**
+```bash
+qrcopy -o "qrcode.png"
+```
+
+> **Note**
+```bash
+# When both file and input text are used .i.e
+qrcopy -i "Hello World" -f hello.txt
+# Input text will be shared with QR-Code
+```
+
+### Upload to pastebin
+
+To use Pastebin insert you **Pastebin API Key** in ```~/.config/qrcopy/qrcopy.json``` -> ```PASTEBIN_API_KEY```
+
+**For EXPIRY DATE valid values are**
+
+* N = Never
+* 10M = 10 Minutes
+* 1H = 1 Hour
+* 1D = 1 Day
+* 1W = 1 Week
+* 2W = 2 Weeks
+* 1M = 1 Month
+* 6M = 6 Months
+* 1Y = 1 Year
+
+**Visit [here](https://pastebin.com/doc_api#:~:text=down%20the%20page.-,Creating%20A%20New%20Paste%2C%20The%20%27api_paste_format%27%20Parameter%20In%20Detail,-We%20have%20over) for the available 200 formats**
+
+```bash
+# Default format : text; Expiry : 1D
+qrcopy -p <FORMAT> <EXPIRY DATE>
+
+qrcopy -p # Uploading copied text to Pastebin
+qrcopy -i "Hello World" -p # Uploading input text to Pastebin
+qrcopy -f hello.txt -p # Uploading file to Pastebin
+
+## Uploading with parameters
+qrcopy -f hello.html -pf html5 -p # Upload hello.html with HTML5 syntax highlighting
+qrcopy -f hello.html -pf html5 -pe 1W -p # Upload hello.html with HTML5 syntax highlighting, expired in 1 week
+```
+
+
+### With other commands
+Format : **`command | qrcopy -s`**
+```bash
+# Generating qrcode for output of cat command
+cat file | qrcopy -s 
+
+# Generating qrcode for url of file uploaded at 0x0.st file sharing service
+command | curl -F 'file=@-' 0x0.st | qrcopy -s 
+
+# Upload log of strace command to 0x0.st and generate qrcode for the url
+strace command | curl -F 'file=@-' 0x0.st | qrcopy -s 
+
+# Upload image to 0x0.st and generate qrcode of the url
+curl -F'file=@yourfile.png' 0x0.st | qrcopy -s
+```
 
 
 ## Uninstall
